@@ -3,6 +3,8 @@
 #include <Adafruit_BNO055.h>
 #include <Adafruit_Sensor.h>
 
+#include "VectorDefinition.h"
+
 enum State {
   LAUNCH_PAD_IDLE,
   ASCENT,
