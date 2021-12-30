@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
+#include <Adafruit_BNO055.h>
+#include <Adafruit_Sensor.h>
 
 enum State {
   LAUNCH_PAD_IDLE,
@@ -10,9 +12,17 @@ enum State {
 
 State active_state;
 
-void setup() {
-  // put your setup code here, to run once:
+// Sensors
 
+Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &Wire1);
+
+void setup() {
+  // Sensor setup
+  Wire.begin();
+  Wire.setClock(400000);
+  if(!bno.begin()) {
+    Serial.println("ERROR: BNO055 initialisation failed!");
+  }
 }
 
 void loop() {
