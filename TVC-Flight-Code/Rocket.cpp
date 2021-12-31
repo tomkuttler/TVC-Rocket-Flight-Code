@@ -6,7 +6,15 @@ Rocket::Rocket() {
 
 void Rocket::padIdle() {
   // update acceleration for lift off check
-  accels = imu.getAcceleration();
+  acceleration = imu.getAcceleration();
 }
 
-// FLIGHT TIME NEEDS TO BE CALCULATED IN ASCENT FUNCTION!!!
+void Rocket::ascent() {
+  // update gyro values
+  gyros = imu.getGyros();
+
+  // calculate flight time in s
+  flightTime = (millis() - flightStartTime) / 1000.0f;
+
+  // TVC ALGORITHM
+}

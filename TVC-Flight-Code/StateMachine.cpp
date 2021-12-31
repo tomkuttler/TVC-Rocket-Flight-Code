@@ -45,7 +45,7 @@ bool StateMachine::liftOffCheck() {
 }
 
 // Check if rocket has reached apogee by looking at the time it takes to reach apogee
-bool StateMachine::apogeeCheck() {
+bool StateMachine::maxApogeeCheck() {
   if (rocket.flightTime > 5) {
     return true;
   }

@@ -13,4 +13,8 @@ class Rocket {
     float flightTime = 0.0f; // in s
     float flightStartTime = 0.0f; // in ms
     void padIdle();
-}
+    void ascent();
+
+  private:
+    IMU imu;
+};
