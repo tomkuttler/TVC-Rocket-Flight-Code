@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include "IMU.h"
+#include "Rocket.h"
 
 enum State {
   LAUNCH_PAD_IDLE,
