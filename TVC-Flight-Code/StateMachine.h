@@ -13,7 +13,11 @@ class StateMachine {
   public:
     StateMachine();
     void stateMachineLoop();
+    bool liftOffCheck();
+    bool maxApogeeCheck();
+    bool landedCheck();
     
   private:
+    Rocket rocket;
     State active_state;
 };
