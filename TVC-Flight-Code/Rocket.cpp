@@ -16,11 +16,17 @@ void Rocket::ascent() {
   // calculate flight time in s
   flightTime = (millis() - flightStartTime) / 1000.0f;
 
-  // TVC ALGORITHM
+  // TODO: TVC ALGORITHM
+
+  //----- TEST CODE -----
+  // Print the angular velocity of rocket in y and z dimension
+  Serial.print(gyros.y);
+  Serial.print(", ");
+  Serial.println(gyros.z);
 }
 
 void Rocket::maxApogee() {
-  // EJECT PARACHUTE
+  // TODO: EJECT PARACHUTE
 }
 
 void Rocket::descent() {

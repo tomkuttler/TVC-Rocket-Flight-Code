@@ -14,9 +14,9 @@ Vector3 IMU::getGyros() {
 }
 
 Vector3 IMU::getAcceleration() {
-  bno.getEvent(&linearAccelData, Adafruit_BNO055::VECTOR_LINEARACCEL);
-  Vector3 V(linearAccelData.acceleration.x,linearAccelData.acceleration.y,linearAccelData.acceleration.z);
-  return V;
+  bno.getEvent(&linearAccelerationData, Adafruit_BNO055::VECTOR_LINEARACCEL);
+  Vector3 Vector(linearAccelerationData.acceleration.x,linearAccelerationData.acceleration.y,linearAccelerationData.acceleration.z);
+  return Vector;
 }
 
 Vector3 IMU::getOrientation() {
