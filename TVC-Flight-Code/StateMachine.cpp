@@ -1,33 +1,36 @@
 #include "StateMachine.h"
 
 StateMachine::StateMachine() {
-  active_state = LAUNCH_PAD_IDLE; // default state
+  activeState = LAUNCH_PAD_IDLE; // default state
 }
 
 void StateMachine::stateMachineLoop() {
-  switch (active_state) {
+  switch (activeState) {
     case LAUNCH_PAD_IDLE:
       rocket.padIdle();
       // Detect lift off -> Ascent flight
       if (liftOffCheck()) {
         // Save the time of lift off
         rocket.flightStartTime = millis();
-        active_state = ASCENT;
+        activeState = ASCENT;
       }
       break;
     case ASCENT:
       // TVC active
       // Log Data
+      rocket.ascent();
       // Detect max apogee -> Descent flight and eject Parachute
       if (maxApogeeCheck()) {
-        active_state = DESCENT;
+        rocket.maxApogee();
+        activeState = DESCENT;
       }
       break;
     case DESCENT:
+      rocket.descent();
       // Log Data
       // Detect landing
       if (landedCheck()) {
-        active_state = LANDED;
+        activeState = LANDED;
       }
       break;
     case LANDED:

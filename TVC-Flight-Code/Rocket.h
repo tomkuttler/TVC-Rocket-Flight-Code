@@ -14,6 +14,9 @@ class Rocket {
     float flightStartTime = 0.0f; // in ms
     void padIdle();
     void ascent();
+    void maxApogee();
+    void descent();
+    void landed();
 
   private:
     IMU imu;

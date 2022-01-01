@@ -19,5 +19,5 @@ class StateMachine {
     
   private:
     Rocket rocket;
-    State active_state;
+    State activeState;
 };

@@ -18,3 +18,12 @@ void Rocket::ascent() {
 
   // TVC ALGORITHM
 }
+
+void Rocket::maxApogee() {
+  // EJECT PARACHUTE
+}
+
+void Rocket::descent() {
+  // calculate flight time in s
+  flightTime = (millis() - flightStartTime) / 1000.0f;
+}
