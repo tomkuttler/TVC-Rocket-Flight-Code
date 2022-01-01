@@ -41,8 +41,8 @@ void StateMachine::stateMachineLoop() {
 
 // Check if rocket has launched by looking at the acceleration on vertical axis (x-axis)
 bool StateMachine::liftOffCheck() {
-  if(rocket.acceleration.x < 2){
-    return true;    
+  if (rocket.acceleration.x < 2) {
+    return true;
   }
   return false;
 }

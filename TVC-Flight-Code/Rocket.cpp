@@ -1,20 +1,24 @@
 #include "Rocket.h"
 
 Rocket::Rocket() {
-  
+
 }
 
 void Rocket::padIdle() {
-  // update acceleration for lift off check
+  // Update acceleration for lift off check
   acceleration = imu.getAcceleration();
 }
 
 void Rocket::ascent() {
-  // update gyro values
+  // Update gyro values
   gyros = imu.getGyros();
 
-  // calculate flight time in s
+  // Calculate flight time in s
   flightTime = (millis() - flightStartTime) / 1000.0f;
+
+  // Calculate delta time
+  currentTime = micros();
+  deltaTime = (currentTime - previousTime) / 1000000.0f;
 
   // TODO: TVC ALGORITHM
 
@@ -30,6 +34,6 @@ void Rocket::maxApogee() {
 }
 
 void Rocket::descent() {
-  // calculate flight time in s
+  // Calculate flight time in s
   flightTime = (millis() - flightStartTime) / 1000.0f;
 }

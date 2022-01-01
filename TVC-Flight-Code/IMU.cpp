@@ -3,7 +3,7 @@
 IMU::IMU() {
   Wire.begin();
   Wire.setClock(400000);
-  if(!bno.begin()) {
+  if (!bno.begin()) {
     Serial.println("ERROR: BNO055 initialisation failed!");
   }
 }
@@ -15,7 +15,7 @@ Vector3 IMU::getGyros() {
 
 Vector3 IMU::getAcceleration() {
   bno.getEvent(&linearAccelerationData, Adafruit_BNO055::VECTOR_LINEARACCEL);
-  Vector3 Vector(linearAccelerationData.acceleration.x,linearAccelerationData.acceleration.y,linearAccelerationData.acceleration.z);
+  Vector3 Vector(linearAccelerationData.acceleration.x, linearAccelerationData.acceleration.y, linearAccelerationData.acceleration.z);
   return Vector;
 }
 

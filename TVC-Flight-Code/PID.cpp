@@ -1,13 +1,13 @@
 /*
- * PID Controller, inspired by https://gist.github.com/bradley219/5373998
- */
+   PID Controller, inspired by https://gist.github.com/bradley219/5373998
+*/
 
 #include "PID.h"
 
 PID::PID(float Kp, float Ki, float Kd, float saturation) {
   this->Kp = Kp;
   this->Ki = Ki;
-  this->Kd = Kd;  
+  this->Kd = Kd;
   this->saturation = saturation;
 }
 
@@ -38,6 +38,6 @@ float PID::update(float input) {
   } else if (output < -saturation) {
     output = -saturation;
   }
-  
+
   return output;
 }

@@ -16,7 +16,7 @@ class StateMachine {
     bool liftOffCheck();
     bool maxApogeeCheck();
     bool landedCheck();
-    
+
   private:
     Rocket rocket;
     State activeState;

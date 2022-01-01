@@ -7,7 +7,7 @@
 class Rocket {
   public:
     Rocket();
-    
+
     // Angular Velocity Vector
     // Three axis of rotation speed in radians per second (rad/s)
     Vector3 gyros;
@@ -23,7 +23,7 @@ class Rocket {
     // Relative Orientation Vector
     // Three axis orientation data (roll, pitch and yaw) in rad
     Vector3 relativeOrientation;
-    
+
     float flightTime = 0.0f; // in s
     float flightStartTime = 0.0f; // in ms
     void padIdle();
@@ -35,6 +35,10 @@ class Rocket {
   private:
     IMU imu;
     // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
-    PID yPID = PID(0.5f,0.1f,0.5f,10.0f);
-    PID zPID = PID(0.5f,0.1f,0.5f,10.0f);
+    PID yPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
+    PID zPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
+
+    unsigned long currentTime = 0.0;
+    unsigned long previousTime = 0.0;
+    float deltaTime = 0.0f;
 };
