@@ -19,7 +19,7 @@ void Rocket::ascent() {
   // TODO: TVC ALGORITHM
 
   //----- TEST CODE -----
-  // Print the angular velocity of rocket in y and z dimension
+  // Print the angular velocity of the rocket on y and z axis
   Serial.print(gyros.y);
   Serial.print(", ");
   Serial.println(gyros.z);

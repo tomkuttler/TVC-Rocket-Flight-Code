@@ -6,13 +6,22 @@
 class Rocket {
   public:
     Rocket();
-    Vector3 ypr; // roll, pitch and yaw in rad
-    Vector3 gyros; // angular velocity in radians per second (rps)
-    Vector3 acceleration; // in m/s^2 // x accel is vertical
+    
+    // Angular Velocity Vector
+    // Three axis of rotation speed in radians per second (rad/s)
+    Vector3 gyros;
 
-    // Absolute Orientation (Euler Vector in deg)
-    // Three axis orientation data based on a 360° sphere
+    // Acceleration Vector
+    // Three axis of acceleration (gravity + linear motion) in m/s^2
+    Vector3 acceleration;
+
+    // Absolute Orientation Vector
+    // Three axis orientation data based on a 360° sphere (Euler Vector in deg)
     Vector3 orientation;
+
+    // Relative Orientation Vector
+    // Three axis orientation data (roll, pitch and yaw) in rad
+    Vector3 relativeOrientation;
     
     float flightTime = 0.0f; // in s
     float flightStartTime = 0.0f; // in ms
