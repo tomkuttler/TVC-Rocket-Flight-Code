@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <Servo.h>
 #include "IMU.h"
+#include "PID.h"
 
 class Rocket {
   public:
@@ -33,4 +34,7 @@ class Rocket {
 
   private:
     IMU imu;
+    // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
+    PID yPID = PID(0.5f,0.1f,0.5f,10.0f);
+    PID zPID = PID(0.5f,0.1f,0.5f,10.0f);
 };
