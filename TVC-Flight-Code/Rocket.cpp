@@ -37,6 +37,22 @@ void Rocket::ascent() {
   float yServoRelPosition = yPIDoutput * 3; // 3 = servo to motor mount ratio, 3 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER
   float zServoRelPosition = zPIDoutput * 3;
 
+  // Check if the servo relative positions are greater than the max motor mount rotation
+  // The motor mount can only be rotated 10 deg => the servos are allowed to rotate 30 deg
+  if(yServoRelPosition > 30) {
+    yServoRelPosition = 30;
+  }
+  else if(yServoRelPosition < -30) {
+    yServoRelPosition = -30;
+  }
+
+  if(zServoRelPosition > 30) {
+    zServoRelPosition = 30;
+  }
+  else if(zServoRelPosition < -30) {
+    zServoRelPosition = -30;
+  }
+
   // Set the position of the servos
   // To get the absolute position of the servo horns, the middle servo horn position is added to the relative orientation
   yServo.write(yServoRelPosition + 90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
@@ -45,7 +61,7 @@ void Rocket::ascent() {
   // Save current time for next cycle
   previousTime = currentTime;
   
-  //----- TEST CODE -----
+  // ----- TEST CODE -----
   // Print the angular velocity of the rocket on y and z axis and the relative servo orientation
   Serial.print("Gyros:");
   Serial.print(gyros.y);
