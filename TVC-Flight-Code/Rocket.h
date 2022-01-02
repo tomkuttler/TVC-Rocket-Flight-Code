@@ -4,6 +4,9 @@
 #include "IMU.h"
 #include "PID.h"
 
+#define Y_SERVO_PIN 3           // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
+#define Z_SERVO_PIN 2           // Z Servo (z axis labeled on IMU) = X Servo (labeled on pcb)
+
 class Rocket {
   public:
     Rocket();
@@ -38,6 +41,9 @@ class Rocket {
     PID yPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
     PID zPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
 
+    Servo yServo;
+    Servo zServo;
+    
     unsigned long currentTime = 0.0;
     unsigned long previousTime = 0.0;
     float deltaTime = 0.0f;

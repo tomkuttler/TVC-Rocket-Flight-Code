@@ -1,7 +1,12 @@
 #include "Rocket.h"
 
 Rocket::Rocket() {
+  // Attach and initialize servos
+  yServo.attach(Y_SERVO_PIN);
+  zServo.attach(Z_SERVO_PIN);
 
+  yServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
+  zServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
 }
 
 void Rocket::padIdle() {
@@ -32,14 +37,24 @@ void Rocket::ascent() {
   float yServoRelPosition = yPIDoutput * 3; // 3 = servo to motor mount ratio, 3 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER
   float zServoRelPosition = zPIDoutput * 3;
 
+  // Set the position of the servos
+  // To get the absolute position of the servo horns, the middle servo horn position is added to the relative orientation
+  yServo.write(yServoRelPosition + 90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
+  zServo.write(zServoRelPosition + 90);
+
   // Save current time for next cycle
   previousTime = currentTime;
   
   //----- TEST CODE -----
-  // Print the angular velocity of the rocket on y and z axis
+  // Print the angular velocity of the rocket on y and z axis and the relative servo orientation
+  Serial.print("Gyros:");
   Serial.print(gyros.y);
   Serial.print(", ");
-  Serial.println(gyros.z);
+  Serial.print(gyros.z);
+  Serial.print("Servo rel pos:");
+  Serial.print(yServoRelPosition);
+  Serial.print(", ");
+  Serial.println(zServoRelPosition);
 }
 
 void Rocket::maxApogee() {
