@@ -28,7 +28,7 @@ float PID::update(float input) {
   // Calculate total output
   output = Kp * error + Ki * errorIntegral + Kd * errorDerivative;
 
-  // Save error and time for next cycle
+  // Save current error and time for next cycle
   errorLastCycle = error;
   previousTime = currentTime;
 
