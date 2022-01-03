@@ -7,6 +7,9 @@
 #define Y_SERVO_PIN 3           // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
 #define Z_SERVO_PIN 2           // Z Servo (z axis labeled on IMU) = X Servo (labeled on pcb)
 
+#define DEG2RAD 0.01745329251f  // Convert degrees to radians by multiplying with this number
+#define RAD2DEG 57.2957795131f  // Convert radians to degrees by multiplying with this number
+
 class Rocket {
   public:
     Rocket();

@@ -33,6 +33,10 @@ void Rocket::ascent() {
   float yPIDoutput = yPID.update(relativeOrientation.y);
   float zPIDoutput = zPID.update(relativeOrientation.z);
 
+  // Convert the relative orientation in rad to deg
+  yPIDoutput = yPIDoutput * RAD2DEG;
+  zPIDoutput = zPIDoutput * RAD2DEG;
+
   // Convert the PID output (orientation of motor mount) to servo position (relative orientation of servo horn)
   float yServoRelPosition = yPIDoutput * 3; // 3 = servo to motor mount ratio, 3 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER
   float zServoRelPosition = zPIDoutput * 3;
