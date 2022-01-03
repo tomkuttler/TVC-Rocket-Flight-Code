@@ -6,8 +6,8 @@ Rocket::Rocket() {
   zServo.attach(Z_SERVO_PIN);
   parachuteServo.attach(PARACHUTE_SERVO_PIN);
 
-  yServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
-  zServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
+  yServo.write(Y_SERVO_MIDDLE);
+  zServo.write(Z_SERVO_MIDDLE);
   parachuteServo.write(PARACHUTE_CLOSED);
 }
 
@@ -61,8 +61,8 @@ void Rocket::ascent() {
 
   // Set the position of the servos
   // To get the absolute position of the servo horns, the middle servo horn position is added to the relative orientation
-  yServo.write(yServoRelPosition + 90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
-  zServo.write(zServoRelPosition + 90);
+  yServo.write(yServoRelPosition + Y_SERVO_MIDDLE);
+  zServo.write(zServoRelPosition + Z_SERVO_MIDDLE);
 
   // Save current time for next cycle
   previousTime = currentTime;
@@ -84,8 +84,8 @@ void Rocket::maxApogee() {
   parachuteServo.write(PARACHUTE_EJECT);
 
   // Set servos to middle position
-  yServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
-  zServo.write(90);
+  yServo.write(Y_SERVO_MIDDLE);
+  zServo.write(Z_SERVO_MIDDLE);
 }
 
 void Rocket::descent() {

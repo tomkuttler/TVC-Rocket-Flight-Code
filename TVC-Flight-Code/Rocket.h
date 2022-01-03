@@ -7,6 +7,10 @@
 #define Y_SERVO_PIN 3           // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
 #define Z_SERVO_PIN 2           // Z Servo (z axis labeled on IMU) = X Servo (labeled on pcb)
 
+// 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
+#define Y_SERVO_MIDDLE 90       // Y Servo horn vertical position (motor mount is vertical)
+#define Z_SERVO_MIDDLE 90       // Z Servo horn vertical position (motor mount is vertical)
+
 #define PARACHUTE_SERVO_PIN 5   // Parachute Servo = Servo 3 (labeled on pcb)
 #define PARACHUTE_CLOSED 0      // Position of the parachute servo before ejection (in deg)
 #define PARACHUTE_EJECT 175     // Position of the parachute servo after ejection (in deg)
