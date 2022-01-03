@@ -4,9 +4,11 @@ Rocket::Rocket() {
   // Attach and initialize servos
   yServo.attach(Y_SERVO_PIN);
   zServo.attach(Z_SERVO_PIN);
+  parachuteServo.attach(PARACHUTE_SERVO_PIN);
 
   yServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
   zServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
+  parachuteServo.write(PARACHUTE_CLOSED);
 }
 
 void Rocket::padIdle() {
@@ -78,7 +80,12 @@ void Rocket::ascent() {
 }
 
 void Rocket::maxApogee() {
-  // TODO: EJECT PARACHUTE
+  // Eject Parachute
+  parachuteServo.write(PARACHUTE_EJECT);
+
+  // Set servos to middle position
+  yServo.write(90); // 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
+  zServo.write(90);
 }
 
 void Rocket::descent() {

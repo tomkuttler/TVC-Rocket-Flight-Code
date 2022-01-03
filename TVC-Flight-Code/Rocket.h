@@ -7,6 +7,10 @@
 #define Y_SERVO_PIN 3           // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
 #define Z_SERVO_PIN 2           // Z Servo (z axis labeled on IMU) = X Servo (labeled on pcb)
 
+#define PARACHUTE_SERVO_PIN 5   // Parachute Servo = Servo 3 (labeled on pcb)
+#define PARACHUTE_CLOSED 0      // Position of the parachute servo before ejection (in deg)
+#define PARACHUTE_EJECT 175     // Position of the parachute servo after ejection (in deg)
+
 #define DEG2RAD 0.01745329251f  // Convert degrees to radians by multiplying with this number
 #define RAD2DEG 57.2957795131f  // Convert radians to degrees by multiplying with this number
 
@@ -32,6 +36,7 @@ class Rocket {
 
     float flightTime = 0.0f; // in s
     float flightStartTime = 0.0f; // in ms
+    
     void padIdle();
     void ascent();
     void maxApogee();
@@ -46,6 +51,7 @@ class Rocket {
 
     Servo yServo;
     Servo zServo;
+    Servo parachuteServo;
     
     unsigned long currentTime = 0.0;
     unsigned long previousTime = 0.0;
