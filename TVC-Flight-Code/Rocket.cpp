@@ -40,23 +40,23 @@ void Rocket::ascent() {
   zPIDoutput = zPIDoutput * RAD2DEG;
 
   // Convert the PID output (orientation of motor mount) to servo position (relative orientation of servo horn)
-  float yServoRelPosition = yPIDoutput * 3; // 3 = servo to motor mount ratio, 3 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER
-  float zServoRelPosition = zPIDoutput * 3;
+  float yServoRelPosition = yPIDoutput * SERVO_RATIO;
+  float zServoRelPosition = zPIDoutput * SERVO_RATIO;
 
   // Check if the servo relative positions are greater than the max motor mount rotation
   // The motor mount can only be rotated 10 deg => the servos are allowed to rotate 30 deg
-  if(yServoRelPosition > 30) {
-    yServoRelPosition = 30;
+  if(yServoRelPosition > MAX_SERVO_ROTATION) {
+    yServoRelPosition = MAX_SERVO_ROTATION;
   }
-  else if(yServoRelPosition < -30) {
-    yServoRelPosition = -30;
+  else if(yServoRelPosition < -MAX_SERVO_ROTATION) {
+    yServoRelPosition = -MAX_SERVO_ROTATION;
   }
 
-  if(zServoRelPosition > 30) {
-    zServoRelPosition = 30;
+  if(zServoRelPosition > MAX_SERVO_ROTATION) {
+    zServoRelPosition = MAX_SERVO_ROTATION;
   }
-  else if(zServoRelPosition < -30) {
-    zServoRelPosition = -30;
+  else if(zServoRelPosition < -MAX_SERVO_ROTATION) {
+    zServoRelPosition = -MAX_SERVO_ROTATION;
   }
 
   // Set the position of the servos

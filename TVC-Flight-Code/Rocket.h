@@ -11,6 +11,10 @@
 #define Y_SERVO_MIDDLE 90       // Y Servo horn vertical position (motor mount is vertical)
 #define Z_SERVO_MIDDLE 90       // Z Servo horn vertical position (motor mount is vertical)
 
+// 3 = servo to motor mount ratio, 3 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER
+#define SERVO_RATIO 3           // Servo horn to motor mount ratio (if horn is turned 1 deg, motor mount will turn 3 deg)
+#define MAX_SERVO_ROTATION 30
+
 #define PARACHUTE_SERVO_PIN 5   // Parachute Servo = Servo 3 (labeled on pcb)
 #define PARACHUTE_CLOSED 0      // Position of the parachute servo before ejection (in deg)
 #define PARACHUTE_EJECT 175     // Position of the parachute servo after ejection (in deg)
