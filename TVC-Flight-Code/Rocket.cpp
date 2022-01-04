@@ -66,7 +66,17 @@ void Rocket::ascent() {
 
   // Save current time for next cycle
   previousTime = currentTime;
+
+  // ----- DATA LOGGING -----
+  acceleration = imu.getAcceleration();
+  orientation = imu.getOrientation();
+
+  float temperature = bmp.readTemperature();
+  float pressure = bmp.readPressure();
+  float altitude = bmp.readAltitude(SEA_LEVEL_PRESSURE);
   
+  sdCard.logData(flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, yServoRelPosition + Y_SERVO_MIDDLE, zServoRelPosition + Z_SERVO_MIDDLE, "ASCENT");
+
   // ----- TEST CODE -----
   // Print the angular velocity of the rocket on y and z axis and the relative servo orientation
   Serial.print("Gyros:");
@@ -91,4 +101,15 @@ void Rocket::maxApogee() {
 void Rocket::descent() {
   // Calculate flight time in s
   flightTime = (millis() - flightStartTime) / 1000.0f;
+
+  // ----- DATA LOGGING -----
+  acceleration = imu.getAcceleration();
+  orientation = imu.getOrientation();
+
+  float temperature = bmp.readTemperature();
+  float pressure = bmp.readPressure();
+  float altitude = bmp.readAltitude(SEA_LEVEL_PRESSURE);
+  
+  sdCard.logData(flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, Y_SERVO_MIDDLE, Z_SERVO_MIDDLE, "DESCENT");
+
 }

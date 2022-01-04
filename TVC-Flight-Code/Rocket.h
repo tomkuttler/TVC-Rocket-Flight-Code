@@ -4,6 +4,7 @@
 #include "IMU.h"
 #include "BMP.h"
 #include "PID.h"
+#include "SDCard.h"
 
 #define Y_SERVO_PIN 3               // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
 #define Z_SERVO_PIN 2               // Z Servo (z axis labeled on IMU) = X Servo (labeled on pcb)
@@ -57,6 +58,7 @@ class Rocket {
   private:
     IMU imu;
     BMP bmp;
+    SDCard sdCard;
     
     // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
     PID yPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
