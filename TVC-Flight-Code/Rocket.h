@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <Servo.h>
 #include "IMU.h"
+#include "BMP.h"
 #include "PID.h"
 
 #define Y_SERVO_PIN 3           // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
@@ -13,7 +14,7 @@
 
 // 3 = servo to motor mount ratio, 3 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER
 #define SERVO_RATIO 3           // Servo horn to motor mount ratio (if horn is turned 1 deg, motor mount will turn 3 deg)
-#define MAX_SERVO_ROTATION 30
+#define MAX_SERVO_ROTATION 30   // Motor mount can only be rotated 10 deg => the servos are allowed to rotate 30 deg
 
 #define PARACHUTE_SERVO_PIN 5   // Parachute Servo = Servo 3 (labeled on pcb)
 #define PARACHUTE_CLOSED 0      // Position of the parachute servo before ejection (in deg)
@@ -53,6 +54,8 @@ class Rocket {
 
   private:
     IMU imu;
+    BMP bmp;
+    
     // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
     PID yPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
     PID zPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
