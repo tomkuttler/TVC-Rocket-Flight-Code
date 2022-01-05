@@ -3,6 +3,12 @@
 SDCard::SDCard() {
   if(!SD.begin(chipSelect)) {
     Serial.println("Error: The SD card failed to initialize, or is not present!");
+    while (true) {
+      // No SD card, so don't do anything more - stay stuck here
+      led.red();
+      delay(1000);
+      led.off();
+    }
   }
 
   File dataFile = SD.open("datalog.CSV", FILE_WRITE);
