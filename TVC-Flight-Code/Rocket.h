@@ -5,6 +5,7 @@
 #include "BMP.h"
 #include "PID.h"
 #include "SDCard.h"
+#include "VoltageDivider.h"
 
 #define Y_SERVO_PIN 3               // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
 #define Z_SERVO_PIN 2               // Z Servo (z axis labeled on IMU) = X Servo (labeled on pcb)
@@ -23,6 +24,8 @@
 
 #define DEG2RAD 0.01745329251f      // Convert degrees to radians by multiplying with this number
 #define RAD2DEG 57.2957795131f      // Convert radians to degrees by multiplying with this number
+
+#define MIN_VOLTAGE 4               // Minimum board voltage to complete startup (in V)
 
 #define SEA_LEVEL_PRESSURE 1013.25  // Standard atmospheric pressure at sea level (in hPa)
 
@@ -59,6 +62,7 @@ class Rocket {
     IMU imu;
     BMP bmp;
     SDCard sdCard;
+    VoltageDivider voltageDivider;
     
     // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
     PID yPID = PID(0.5f, 0.1f, 0.5f, 10.0f);

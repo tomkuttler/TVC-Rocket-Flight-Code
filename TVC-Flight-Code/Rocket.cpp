@@ -9,6 +9,14 @@ Rocket::Rocket() {
   yServo.write(Y_SERVO_MIDDLE);
   zServo.write(Z_SERVO_MIDDLE);
   parachuteServo.write(PARACHUTE_CLOSED);
+
+  // Check on-board voltage
+  if(voltageDivider.getBoardVoltage() < MIN_VOLTAGE) {
+    Serial.println("Error: on-board voltage too low");
+    while (true) {
+      // on-board voltage to low, so stay stuck here
+    }
+  }
 }
 
 void Rocket::padIdle() {
