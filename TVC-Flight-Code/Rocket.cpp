@@ -15,6 +15,9 @@ Rocket::Rocket() {
     Serial.println("Error: on-board voltage too low");
     while (true) {
       // on-board voltage to low, so stay stuck here
+      sdCard.led.red();
+      delay(500);
+      sdCard.led.off();
     }
   }
 }
