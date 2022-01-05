@@ -8,11 +8,11 @@ SDCard::SDCard() {
   File dataFile = SD.open("datalog.CSV", FILE_WRITE);
 
   // Write top description line
-  dataFile.println("flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, yServo orientation, zServo orientation, state");
+  dataFile.println("flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, yServo orientation, zServo orientation, voltage, state");
   dataFile.close();
 }
 
-void SDCard::logData(float flightTime, float gyroX, float gyroY, float gyroZ, float accelerationX, float accelerationY, float accelerationZ, float orientationX, float orientationY, float orientationZ, float temperature, float pressure, float altitude, float yServo, float zServo, String state) {
+void SDCard::logData(float flightTime, float gyroX, float gyroY, float gyroZ, float accelerationX, float accelerationY, float accelerationZ, float orientationX, float orientationY, float orientationZ, float temperature, float pressure, float altitude, float yServo, float zServo, float voltage, String state) {
   // Create file (or open it if it already exists)
   File dataFile = SD.open("datalog.CSV", FILE_WRITE);
 
@@ -47,6 +47,8 @@ void SDCard::logData(float flightTime, float gyroX, float gyroY, float gyroZ, fl
     dataFile.print(yServo);
     dataFile.print(",");
     dataFile.print(zServo);
+    dataFile.print(",");
+    dataFile.print(voltage);
     dataFile.print(",");
     dataFile.println(state);
     

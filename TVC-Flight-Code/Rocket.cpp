@@ -82,8 +82,10 @@ void Rocket::ascent() {
   float temperature = bmp.readTemperature();
   float pressure = bmp.readPressure();
   float altitude = bmp.readAltitude(SEA_LEVEL_PRESSURE);
+
+  float voltage = voltageDivider.getBoardVoltage();
   
-  sdCard.logData(flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, yServoRelPosition + Y_SERVO_MIDDLE, zServoRelPosition + Z_SERVO_MIDDLE, "ASCENT");
+  sdCard.logData(flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, yServoRelPosition + Y_SERVO_MIDDLE, zServoRelPosition + Z_SERVO_MIDDLE, voltage, "ASCENT");
 
   // ----- TEST CODE -----
   // Print the angular velocity of the rocket on y and z axis and the relative servo orientation
@@ -117,7 +119,9 @@ void Rocket::descent() {
   float temperature = bmp.readTemperature();
   float pressure = bmp.readPressure();
   float altitude = bmp.readAltitude(SEA_LEVEL_PRESSURE);
+
+  float voltage = voltageDivider.getBoardVoltage();
   
-  sdCard.logData(flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, Y_SERVO_MIDDLE, Z_SERVO_MIDDLE, "DESCENT");
+  sdCard.logData(flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, Y_SERVO_MIDDLE, Z_SERVO_MIDDLE, voltage, "DESCENT");
 
 }
