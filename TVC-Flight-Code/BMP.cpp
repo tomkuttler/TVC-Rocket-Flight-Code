@@ -5,7 +5,7 @@ BMP::BMP() {
     Serial.println("ERROR: BMP280 initialisation failed!");
   }
 
-  // Default settings from datasheet
+  // Default settings from datasheet https://cdn-shop.adafruit.com/datasheets/BST-BMP280-DS001-11.pdf
   bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,     /* Operating Mode. */
                   Adafruit_BMP280::SAMPLING_X2,     /* Temp. oversampling */
                   Adafruit_BMP280::SAMPLING_X16,    /* Pressure oversampling */

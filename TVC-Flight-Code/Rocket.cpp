@@ -14,7 +14,7 @@ Rocket::Rocket() {
   if(voltageDivider.getBoardVoltage() < MIN_VOLTAGE) {
     Serial.println("Error: on-board voltage too low");
     while (true) {
-      // on-board voltage to low, so do not do anything more - stay stuck here and play alarm
+      // on-board voltage too low, so do not do anything more - stay stuck here and play alarm
       sdCard.buzzer.tooLowOnBoardVoltageAlert();
       
       sdCard.led.red();
