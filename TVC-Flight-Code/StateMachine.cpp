@@ -1,7 +1,9 @@
 #include "StateMachine.h"
 
 StateMachine::StateMachine() {
-  activeState = LAUNCH_PAD_IDLE; // default state
+  activeState = LAUNCH_PAD_IDLE; // Default state
+
+  rocket.sdCard.led.red();
 }
 
 void StateMachine::stateMachineLoop() {
@@ -13,6 +15,7 @@ void StateMachine::stateMachineLoop() {
         // Save the time of lift off
         rocket.flightStartTime = millis();
         activeState = ASCENT;
+        rocket.sdCard.led.green();
       }
       break;
     case ASCENT:
@@ -23,6 +26,7 @@ void StateMachine::stateMachineLoop() {
       if (maxApogeeCheck()) {
         rocket.maxApogee();
         activeState = DESCENT;
+        rocket.sdCard.led.blue();
       }
       break;
     case DESCENT:
@@ -31,6 +35,7 @@ void StateMachine::stateMachineLoop() {
       // Detect landing
       if (landedCheck()) {
         activeState = LANDED;
+        rocket.sdCard.led.purple();
       }
       break;
     case LANDED:

@@ -5,10 +5,10 @@
  * 
  * STATE           | COLOR
  * ----------------|--------
- * LAUNCH_PAD_IDLE |
- * ASCENT          |
- * DESCENT         |
- * LANDED          |
+ * LAUNCH_PAD_IDLE | red
+ * ASCENT          | green
+ * DESCENT         | blue
+ * LANDED          | purple
  */
 
 #include <Arduino.h>

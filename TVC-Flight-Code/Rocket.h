@@ -33,6 +33,8 @@ class Rocket {
   public:
     Rocket();
 
+    SDCard sdCard;
+
     // Angular Velocity Vector
     // Three axis of rotation speed in radians per second (rad/s)
     Vector3 gyros;
@@ -61,7 +63,6 @@ class Rocket {
   private:
     IMU imu;
     BMP bmp;
-    SDCard sdCard;
     VoltageDivider voltageDivider;
     
     // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
