@@ -1,3 +1,16 @@
+/*
+ * Common Anode LED
+ * 
+ * Changes color according to the state the Flight Controller is currently in
+ * 
+ * STATE           | COLOR
+ * ----------------|--------
+ * LAUNCH_PAD_IDLE |
+ * ASCENT          |
+ * DESCENT         |
+ * LANDED          |
+ */
+
 #include <Arduino.h>
 
 #define R_LED 41

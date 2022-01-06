@@ -1,3 +1,12 @@
+/*
+ * Absolute Orientation Sensor BNO055
+ * https://www.adafruit.com/product/4646
+ * 
+ * IMU = inertial measurement unit
+ * 
+ * Outputs the following data: angular velocity, acceleration and absolute orientation
+ */
+
 #include <Adafruit_BNO055.h>
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
