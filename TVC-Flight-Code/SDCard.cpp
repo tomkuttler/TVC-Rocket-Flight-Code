@@ -4,7 +4,9 @@ SDCard::SDCard() {
   if(!SD.begin(chipSelect)) {
     Serial.println("Error: The SD card failed to initialize, or is not present!");
     while (true) {
-      // No SD card, so don't do anything more - stay stuck here
+      // No SD card, so do not do anything more - stay stuck here and play alarm
+      buzzer.noSDCardAlert();
+      
       led.red();
       delay(1000);
       led.off();

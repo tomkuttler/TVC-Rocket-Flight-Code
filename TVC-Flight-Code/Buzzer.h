@@ -1,8 +1,10 @@
 #include <Arduino.h>
 
-#define BUZZER 36
+#define BUZZER_PIN 36
 
 class Buzzer {
   public:
     Buzzer();
+
+    void noSDCardAlert();
 };
