@@ -1,6 +1,6 @@
 /*
-   PID Controller, inspired by https://gist.github.com/bradley219/5373998
-*/
+ * PID Controller, inspired by https://gist.github.com/bradley219/5373998
+ */
 
 #include "PID.h"
 

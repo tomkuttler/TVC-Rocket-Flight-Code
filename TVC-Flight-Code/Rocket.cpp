@@ -91,24 +91,13 @@ void Rocket::ascent() {
   float voltage = voltageDivider.getBoardVoltage();
   
   sdCard.logData(flightTime, gyros.x, gyros.y, gyros.z, acceleration.x, acceleration.y, acceleration.z, orientation.x, orientation.y, orientation.z, temperature, pressure, altitude, yServoRelPosition + Y_SERVO_MIDDLE, zServoRelPosition + Z_SERVO_MIDDLE, voltage, "ASCENT");
-
-  // ----- TEST CODE -----
-  // Print the angular velocity of the rocket on y and z axis and the relative servo orientation
-  Serial.print("Gyros:");
-  Serial.print(gyros.y);
-  Serial.print(", ");
-  Serial.print(gyros.z);
-  Serial.print("Servo rel pos:");
-  Serial.print(yServoRelPosition);
-  Serial.print(", ");
-  Serial.println(zServoRelPosition);
 }
 
 void Rocket::maxApogee() {
   // Eject Parachute
   parachuteServo.write(PARACHUTE_EJECT);
 
-  // Set servos to middle position
+  // Set tvc servos to middle position
   yServo.write(Y_SERVO_MIDDLE);
   zServo.write(Z_SERVO_MIDDLE);
 }
