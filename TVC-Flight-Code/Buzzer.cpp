@@ -12,3 +12,13 @@ void Buzzer::noSDCardAlert() {
   }
   noTone(BUZZER_PIN);
 }
+
+void Buzzer::tooLowOnBoardVoltageAlert() {
+  for(int i = 0; i < 1000; i++) {    
+    tone(BUZZER_PIN, 2000);
+    delayMicroseconds(i);
+    noTone(BUZZER_PIN);
+    delayMicroseconds(i);    
+  }
+  noTone(BUZZER_PIN);
+}

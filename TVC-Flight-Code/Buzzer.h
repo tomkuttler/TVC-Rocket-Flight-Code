@@ -7,4 +7,5 @@ class Buzzer {
     Buzzer();
 
     void noSDCardAlert();
+    void tooLowOnBoardVoltageAlert();
 };
