@@ -1,3 +1,9 @@
+/*
+ * PID-Controller
+ * 
+ * The orientation of the motor mount is calculated with two separate PID-Controllers
+ */
+
 #include <Wire.h>
 #include <Arduino.h>
 

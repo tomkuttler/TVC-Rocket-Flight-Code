@@ -13,6 +13,7 @@ SDCard::SDCard() {
     }
   }
 
+  // Create file (or open it if it already exists)
   File dataFile = SD.open("datalog.CSV", FILE_WRITE);
 
   // Write top description line
@@ -21,7 +22,7 @@ SDCard::SDCard() {
 }
 
 void SDCard::logData(float flightTime, float gyroX, float gyroY, float gyroZ, float accelerationX, float accelerationY, float accelerationZ, float orientationX, float orientationY, float orientationZ, float temperature, float pressure, float altitude, float yServo, float zServo, float voltage, String state) {
-  // Create file (or open it if it already exists)
+  // Open the data logging file
   File dataFile = SD.open("datalog.CSV", FILE_WRITE);
 
   // If the file is available, write to it

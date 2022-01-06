@@ -1,3 +1,11 @@
+/*
+ * Rocket code file
+ * 
+ * Contains code that will be run in a specific state
+ * Functions are called in StateMachine.cpp
+ * Header file contains all constants that are specific to the model rocket
+ */
+
 #include <Wire.h>
 #include <Arduino.h>
 #include <Servo.h>
@@ -66,7 +74,9 @@ class Rocket {
     VoltageDivider voltageDivider;
     
     // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
+    // PID-Controller for calculation of motor mount orientation on y-axis
     PID yPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
+    // PID-Controller for calculation of motor mount orientation on z-axis
     PID zPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
 
     Servo yServo;
