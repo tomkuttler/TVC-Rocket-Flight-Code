@@ -46,7 +46,7 @@ void StateMachine::stateMachineLoop() {
 
 // Check if rocket has launched by looking at the acceleration on vertical axis (x-axis)
 bool StateMachine::liftOffCheck() {
-  if (rocket.acceleration.x < 2) {
+  if (rocket.acceleration.x < LIFT_THRESHOLD) {
     return true;
   }
   return false;
@@ -54,7 +54,7 @@ bool StateMachine::liftOffCheck() {
 
 // Check if rocket has reached apogee by looking at the time it takes to reach apogee
 bool StateMachine::maxApogeeCheck() {
-  if (rocket.flightTime > 5) {
+  if (rocket.flightTime > TIME_TO_APOGEE) {
     return true;
   }
   return false;
@@ -62,7 +62,7 @@ bool StateMachine::maxApogeeCheck() {
 
 // Check if rocket has landed by looking at the time it takes to land
 bool StateMachine::landedCheck() {
-  if (rocket.flightTime > 30) {
+  if (rocket.flightTime > TIME_TO_LANDING) {
     return true;
   }
   return false;
