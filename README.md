@@ -39,3 +39,11 @@ The state machine is controlling the model rocket based on the current state of 
 `ASCENT`: The ascent state where the TVC system controls the orientation of the rocket during its powered ascent.\
 `DESCENT`: The descent state where the TVC system is deactivated and the rocket is falling down.\
 `LANDED`: The landed state where the rocket is waiting for recovery.
+
+### PID Control Loop
+
+The PID control loop is responsible for adjusting the orientation of the motor mount based on the current orientation of the rocket and the desired orientation. The PID control loop has three components:
+
+- Proportional: The proportional component adjusts the orientation of the rocket based on the difference between the current orientation and the desired orientation.
+- Integral: The integral component adjusts the orientation of the rocket based on the cumulative error between the current orientation and the desired orientation.
+- Derivative: The derivative component adjusts the orientation of the rocket based on the rate of change of the error between the current orientation and the desired orientation.
