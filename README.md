@@ -17,6 +17,7 @@ This repository contains the source code for a software implementation of thrust
 - [Features](#features)
     - [State Machine](#state-machine)
     - [PID Control Loop](#pid-control-loop)
+    - [Parachute Ejection](#parachute-ejection)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -54,6 +55,10 @@ Each PID control loop has three components:
 - Derivative: The derivative component adjusts the orientation of the rocket based on the rate of change of the error between the current orientation and the desired orientation.
 
 By using two separate PID control loops, the TVC system is able to independently adjust the orientation of the rocket in both the x-direction and the y-direction, by using two servos which gimbal the motor mount.
+
+### Parachute Ejection
+
+While the TVC system controls the orientation of the rocket during ascent, a separate mechanical parachute ejection system is used to deploy the parachute. This system consists of springs and a servo that is triggered by a signal from the state machine when the rocket switches from the ascent state to the descent state. By ejecting the parachute during the switch from ascent to descent, the rocket is able to safely decelerate and return to the ground without sustaining damage.
 
 ## Contributing
 
