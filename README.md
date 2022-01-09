@@ -17,6 +17,8 @@ This repository contains the source code for a software implementation of thrust
 - [Features](#features)
     - [State Machine](#state-machine)
     - [PID Control Loop](#pid-control-loop)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
@@ -36,9 +38,9 @@ To use the TVC system with this software, you'll need a flight controller and a 
 
 The state machine is controlling the model rocket based on the current state of the flight. The state machine has four states:
 
-- `LAUNCH_PAD_IDLE`: The initialization state where the TVC system is initialized and the rocket is waiting for launch.\
-- `ASCENT`: The ascent state where the TVC system controls the orientation of the rocket during its powered ascent.\
-- `DESCENT`: The descent state where the TVC system is deactivated and the rocket is falling down.\
+- `LAUNCH_PAD_IDLE`: The initialization state where the TVC system is initialized and the rocket is waiting for launch.
+- `ASCENT`: The ascent state where the TVC system controls the orientation of the rocket during its powered ascent.
+- `DESCENT`: The descent state where the TVC system is deactivated and the rocket is falling down.
 - `LANDED`: The landed state where the rocket is waiting for recovery.
 
 ### PID Control Loop
@@ -52,3 +54,17 @@ Each PID control loop has three components:
 - Derivative: The derivative component adjusts the orientation of the rocket based on the rate of change of the error between the current orientation and the desired orientation.
 
 By using two separate PID control loops, the TVC system is able to independently adjust the orientation of the rocket in both the x-direction and the y-direction, by using two servos which gimbal the motor mount.
+
+## Contributing
+
+If you would like to contribute to this project, please follow these steps:
+
+1. Fork the repository to your own account.
+2. Create a new branch with your changes.
+3. Submit a pull request with your changes.
+
+## License
+
+This project is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. You are free to use, copy, modify, distribute, and display the work, as well as make derivative works based on it, as long as you give attribution to the original author and share any derivative works under the same license. For more information about the license, please see the `LICENSE file.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
