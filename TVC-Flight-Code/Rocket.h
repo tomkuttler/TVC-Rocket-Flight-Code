@@ -18,12 +18,11 @@
 #define Y_SERVO_PIN 3               // Y Servo (y axis labeled on IMU) = Y Servo (labeled on pcb)
 #define Z_SERVO_PIN 2               // Z Servo (z axis labeled on IMU) = X Servo (labeled on pcb)
 
-// 90 = middle servo horn position, 90 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER (90 IS NOT THE EXACT MIDDLE POSITION)
-#define Y_SERVO_MIDDLE 90           // Y Servo horn vertical position (motor mount is vertical)
-#define Z_SERVO_MIDDLE 90           // Z Servo horn vertical position (motor mount is vertical)
+#define Y_SERVO_MIDDLE 78           // Y Servo horn vertical position (motor mount is vertical)
+#define Z_SERVO_MIDDLE 87           // Z Servo horn vertical position (motor mount is vertical)
 
-// 3 = servo to motor mount ratio, 3 is a ROUGH ESTIMETE, NEEDS TO BE EVALUATED CLOSER
-#define SERVO_RATIO 3               // Servo horn to motor mount ratio (if horn is turned 1 deg, motor mount will turn 3 deg)
+// Servo ratio is calculated by making multiple images of different servo horn angles and comparing the orientation of the horn and the motor mount
+#define SERVO_RATIO 3.1             // Servo horn to motor mount ratio (if horn is turned 1 deg, motor mount will turn 3 deg)
 #define MAX_SERVO_ROTATION 30       // Motor mount can only be rotated 10 deg => the servos are allowed to rotate 30 deg
 
 #define PARACHUTE_SERVO_PIN 5       // Parachute Servo = Servo 3 (labeled on pcb)
