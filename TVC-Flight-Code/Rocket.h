@@ -72,11 +72,11 @@ class Rocket {
     BMP bmp;
     VoltageDivider voltageDivider;
     
-    // TEST PID VALUES !!! (NOT SUITABLE FOR REAL FLIGHT)
+    // PID Values were tuned with a Simulink simulation and verified with AeroVECTOR https://github.com/GuidodiPasquo/AeroVECTOR
     // PID-Controller for calculation of motor mount orientation on y-axis
-    PID yPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
+    PID yPID = PID(0.6f, 0.05f, 0.125f, 10.0f);
     // PID-Controller for calculation of motor mount orientation on z-axis
-    PID zPID = PID(0.5f, 0.1f, 0.5f, 10.0f);
+    PID zPID = PID(0.6f, 0.05f, 0.125f, 10.0f);
 
     Servo yServo;
     Servo zServo;

@@ -19,8 +19,10 @@
 #include "Rocket.h"
 
 #define LIFT_THRESHOLD -2   // Acceleration on vertical axis/x-axis (negative value = acceleration upwards) (in m/s^2)
-#define TIME_TO_APOGEE 5    // Time from start until rocket reaches max apogee and parachute will be ejected (in s)
-#define TIME_TO_LANDING 30  // Time from start until rocket lands (in s)
+
+// Calculated with a flight simulation in AeroVECTOR https://github.com/GuidodiPasquo/AeroVECTOR
+#define TIME_TO_APOGEE 4     // Time from start until rocket reaches max apogee and parachute will be ejected (in s)
+#define TIME_TO_LANDING 30   // Time from start until rocket lands (in s)
 
 enum State {
   LAUNCH_PAD_IDLE,
