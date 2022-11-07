@@ -2,15 +2,23 @@
 
 # TVC-Rocket-Flight-Code
 
-![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white)
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+<a href="https://www.arduino.cc">
+    <img alt="arduino" src="https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white" /></a>
+<a href="https://www.iso.org/standard/74528.html">
+    <img alt="C" src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" /></a>
+<a href="https://isocpp.org">
+    <img alt="C++" src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" /></a>
+<br>
+<br>
 
 This repository contains the source code for a software implementation of thrust vector control (TVC) for model rockets. The software consists of a state machine and PID control loops to adjust the orientation of the rocket during its powered ascent.
 
+<img alt="flight video" src="https://github.com/tomkuttler/TVC-Rocket-Flight-Code/blob/main/flight.gif" width="400" />
+
 </div>
 
-## Table of contents
+<details>
+<summary>Table of Contents</summary>
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -20,6 +28,7 @@ This repository contains the source code for a software implementation of thrust
     - [Parachute Ejection](#parachute-ejection)
 - [Contributing](#contributing)
 - [License](#license)
+</details>
 
 ## Installation
 
@@ -70,7 +79,4 @@ If you would like to contribute to this project, please follow these steps:
 
 ## License
 
-</a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-You are free to use, copy, modify, distribute, and display the work, as well as make derivative works based on it, as long as you give attribution to the original author and share any derivative works under the same license. For more information about the license, please see the `LICENSE.md` file.
-<div align="center">
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></div>
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). You are free to use, modify, and distribute this software for both personal and commercial purposes as long as you give attribution to the original author. For more information about the license, please see the `LICENSE` file.
